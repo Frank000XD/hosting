@@ -118,14 +118,14 @@
         .nav-logo {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--accent-gold), #c49a2e);
+            background-color: whitesmoke;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             font-size: 1.2rem;
-            color: var(--primary-blue-dark);
+            color: rgb(168, 46, 46)
         }
 
         .nav-brand-text {
@@ -1006,13 +1006,13 @@
         .footer-logo {
             width: 50px;
             height: 50px;
-            background: var(--accent-gold);
+            background-color: whitesmoke;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: var(--primary-blue-dark);
+            color: rgb(168, 46, 46)
         }
 
         .footer-brand-text {
@@ -1306,10 +1306,28 @@
         .carousel-author-info small {
             color: var(--text-secondary);
         }
+
+        .imagen1 {
+             position: absolute;
+              top: auto;
+              left: auto;
+              bottom: auto;
+              width: 20pc;
+              height: 20pc;
+        }
+         .imagen2 {
+             position: absolute;
+              top: -0.3pc;
+              left: auto;
+              bottom: auto;
+              width: 20pc;
+              height: 20pc;
+        }
+        
     </style>
 </head>
 <body>
-   
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#inicio" class="nav-brand">
@@ -1335,7 +1353,7 @@
         </div>
     </nav>
 
-
+    <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="hero-shapes">
             <div class="hero-shape"></div>
@@ -1376,7 +1394,7 @@
         </div>
     </section>
 
-   
+    <!-- About Section -->
     <section class="about" id="nosotros">
         <div class="section-container">
             <div class="section-header fade-in">
@@ -1424,13 +1442,12 @@
         </div>
     </section>
 
-  
     <section class="history" id="historia">
         <div class="section-container">
             <div class="history-content">
                 <div class="history-image fade-in">
                     <div class="history-image-main">
-                        <i class="fas fa-school"></i>
+                        <img src="https://static.wixstatic.com/media/53f1c6_c49649d23e3c4eda8b8c116fc95cc506~mv2.png/v1/crop/x_5,y_0,w_747,h_816/fill/w_319,h_348,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/333.png" alt="Imagen de la Institución" style="width:100%; height:100%; border-radius:20px;">
                     </div>
                     <div class="history-badge">
                         <span>+30</span>
@@ -1473,7 +1490,6 @@
         </div>
     </section>
 
-  
     <section class="authorities" id="autoridades">
         <div class="section-container">
             <div class="section-header fade-in">
@@ -1528,7 +1544,7 @@
         </div>
     </section>
 
-   
+    <!-- Academic Offer Section -->
     <section class="academic" id="oferta">
         <div class="section-container">
             <div class="section-header fade-in">
@@ -1591,7 +1607,7 @@
         </div>
     </section>
 
-
+    <!-- News Section -->
     <section class="news" id="noticias">
         <div class="section-container">
             <div class="section-header fade-in">
@@ -1657,7 +1673,7 @@
         </div>
     </section>
 
-
+    <!-- Gallery Section -->
     <section class="gallery" id="galeria">
         <div class="section-container">
             <div class="section-header fade-in">
@@ -1669,37 +1685,37 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
-                    <i class="fas fa-image"></i>
+                    <img src="https://scontent.fgye1-1.fna.fbcdn.net/v/t39.30808-6/487298890_1197463222383450_5082292420937085054_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGVQqWV19zeYjhTPqwq3mp2ZqzDMBjlbq9mrMMwGOVur3DeKTqGjXHANS7dwsDxK8ygQ5zqk4431gnTDjOx2MG3&_nc_ohc=vdoJRATQurEQ7kNvwHXsrlX&_nc_oc=AdmhyM_0jrIoQ8Ox_EBOnoy_rt1EIYOsFtbPng6BFZbb-D4Y41z6b0vN-C56Pm9fkmOslYLMTDQy-DwV9R-jQ6-7&_nc_zt=23&_nc_ht=scontent.fgye1-1.fna&_nc_gid=DXjNYQlcwUfEms3iPqybsw&oh=00_AfqI2U8E1qMcibAhKL7VHpFH0oXmGLj6uH3F6mLqx3F5yw&oe=6965C4BF" alt="Instalaciones" width="100%" height="100%">
                     <div class="gallery-overlay">
                         <span>Instalaciones</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <i class="fas fa-image"></i>
+                    <img src="https://scontent.fgye1-2.fna.fbcdn.net/v/t39.30808-6/488549830_1205301941599578_6104446179310240986_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHPAZIgYVAYQAu3fT1RT-0DUag-N6cjhhJRqD43pyOGEv_2zMQWrT6AUTuh1QTLnYf_Ozf0EhBblAV9DdQ8ySci&_nc_ohc=Fwj2igokMoAQ7kNvwEqSjUc&_nc_oc=AdkoZjuwI0XHUmGvK2JnuiGiCBKDZ_7hlzn5ebFO4316t50hlEZTju-iBYXzv9MvA0VqI0ZIKCnnQr39-avs4SxX&_nc_zt=23&_nc_ht=scontent.fgye1-2.fna&_nc_gid=p7Agh8oCEcmGZGjlhWaKMQ&oh=00_AfrpKEhMU65Wouph_Tq7p0isnaN0AVZEWqBG_R0NfCpVRw&oe=6965D3A4" alt="Actividades Académicas" width="100%" height="100%">
                     <div class="gallery-overlay">
                         <span>Actividades Académicas</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <i class="fas fa-image"></i>
+                  <img src="https://scontent.fgye1-1.fna.fbcdn.net/v/t39.30808-6/486835878_1197463462383426_2322215884695300266_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEOwVGQYdcylRqSMkDxaitvj_ibSiozFneP-JtKKjMWd-fy3YLM3E0ntSHUOJsEaqM8sPhBmymnFCBirv3Leuia&_nc_ohc=Hqpa9O-6IGAQ7kNvwHnBucl&_nc_oc=AdlIYY_V0y1CvHn5rbVdI8fWUqQk9rRZo9_CnZSaOYums5_BwQoEGdLcAl9rxBXZ_2vHEDLcxQz6T35V60ENvJLR&_nc_zt=23&_nc_ht=scontent.fgye1-1.fna&_nc_gid=BsCJUMii7owsWu7vXMFdSA&oh=00_AfqfkRy__GB6PfxsBvA4xZIvZz_9jTaDXAb1BD5Yuc9hUA&oe=6965EAC5" alt="Eventos Culturales" width="100%" height="100%">
                     <div class="gallery-overlay">
                         <span>Eventos Culturales</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <i class="fas fa-image"></i>
+                    <img src="https://scontent.fgye1-2.fna.fbcdn.net/v/t39.30808-6/488709613_1204264265036679_2845247420852462525_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFVHh_EBupUVd26pnUDJ6l0UVJe0cgJhJhRUl7RyAmEmA0YDT6ZvUfn-kd3G0mhuuGS4MHDa4bXbPhzVFkD4WMz&_nc_ohc=Y_Qiy3KRXzIQ7kNvwG7ZTAr&_nc_oc=AdksJIlvtVYVpEod2GeTK_08LPQFgpCcwEN-kI3760opMB9mMy9PceNoPxxy7zCcB4qAWBHurqRO-HGjiAFcDJIv&_nc_zt=23&_nc_ht=scontent.fgye1-2.fna&_nc_gid=6AOXt2IA9WthZF7vMBNC8w&oh=00_AfouN49Y34LxjIdz0ueOLpGIOPAP398lpdpHmJVmzEtNLw&oe=6965C359" alt="Deportes" width="100%" height="100%">
                     <div class="gallery-overlay">
                         <span>Deportes</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <i class="fas fa-image"></i>
+                    <img src="https://scontent.fgye1-1.fna.fbcdn.net/v/t39.30808-6/494164418_1224003199729452_273012150704595222_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEXQkOLTa0IeLUGXRVDNsfjC-uzbtCh7G8L67Nu0KHsbyHb50vHoD-yOf25OMN_d2D4PlPbFb8wVqU5bSNKIxsW&_nc_ohc=gGSGdWTouv4Q7kNvwFGsr7O&_nc_oc=Adk8d846J1rnWAQzk_eOCpfrCpL34J9YGqr7oRsulY-172eKY_sTfA-UARYmED3CMbA5SCeKlTqMXm-RosY_6gny&_nc_zt=23&_nc_ht=scontent.fgye1-1.fna&_nc_gid=jeVwQyAeqEssOoGGycOVYg&oh=00_AfofIHUcOgxBBAtAJG_JSwdbVLRSiI-uW_qHUoUACq8h1Q&oe=6965ED47" alt="Graduaciones" width="100%" height="100%">
                     <div class="gallery-overlay">
                         <span>Graduaciones</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <i class="fas fa-image"></i>
+                    <img src="https://scontent.fgye1-2.fna.fbcdn.net/v/t39.30808-6/491622680_1214082117388227_6490917253396788445_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGCfnpwRwqDgtqblKvwd_epJGXSXimTrtgkZdJeKZOu2PQuVCNqRSk_BJ5kOWq4AaQpcwNO2ehXJV_ajKQjUVPW&_nc_ohc=idCyacm9uDQQ7kNvwFoc1ny&_nc_oc=AdnyNWmMKrZQfv3bgw_KScJziQfKNIThJVjkd93yrWLbFtqOvdwbbMVgCB3cS-WDCnlGg5Ohs4-noSdWtDEFFMNM&_nc_zt=23&_nc_ht=scontent.fgye1-2.fna&_nc_gid=ByNwRERv4gBhfh2AOGIT7w&oh=00_Afo5kNVjfUgYvJQKKIaQHkosX25uyAAdyb3xlAyop9MJ7g&oe=6965D95A" alt="Comunidad Educativa" width="100%" height="100%">
                     <div class="gallery-overlay">
                         <span>Comunidad Educativa</span>
                     </div>
@@ -1708,7 +1724,7 @@
         </div>
     </section>
 
-  
+    <!-- Contact Section -->
     <section class="contact" id="contacto">
         <div class="section-container">
             <div class="section-header fade-in">
@@ -1799,7 +1815,7 @@
         </div>
     </section>
 
-   
+    <!-- Testimonials Carousel -->
     <section class="news" style="padding-top: 0;">
         <div class="section-container">
             <div class="section-header fade-in">
@@ -1873,22 +1889,22 @@
         </div>
     </section>
 
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-about">
                 <div class="footer-brand">
-                    <div class="footer-logo">UEB</div>
-                    <div class="footer-brand-text">U.E.F Provincia de Bolívar</div>
+                    <div class="footer-logo">UEFB</div>
+                    <div class="footer-brand-text">U.E.F. Provincia de Bolívar</div>
                 </div>
                 <p>
                     Formando estudiantes con valores, pensamiento crítico y competencias
                     tecnológicas para un futuro exitoso.
                 </p>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/ProvBolivar/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://x.com/IE_ProBol" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
@@ -1926,7 +1942,7 @@
         </div>
     </footer>
 
-  
+    <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <h3 id="modalTitle">Información</h3>
@@ -1938,7 +1954,7 @@
     </div>
 
     <script>
-      
+        // Dark mode detection
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
         }
@@ -1950,7 +1966,7 @@
             }
         });
 
-     
+        // Mobile menu toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
 
@@ -1961,7 +1977,7 @@
             icon.classList.toggle('fa-times');
         });
 
-    
+        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -1971,7 +1987,7 @@
             });
         });
 
-      
+        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1981,7 +1997,7 @@
             }
         });
 
-     
+        // Active nav link on scroll
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -2002,7 +2018,7 @@
             });
         });
 
-    
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -2020,7 +2036,7 @@
             observer.observe(el);
         });
 
-        
+        // Modal functions
         function showModal(title, message) {
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalMessage').textContent = message;
@@ -2031,14 +2047,14 @@
             document.getElementById('modalOverlay').classList.remove('active');
         }
 
-      
+        // Close modal on overlay click
         document.getElementById('modalOverlay').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) {
                 closeModal();
             }
         });
 
-     
+        // Form submission
         function handleSubmit(event) {
             event.preventDefault();
             const form = event.target;
@@ -2053,7 +2069,7 @@
             form.reset();
         }
 
-    
+        // Animate stats on scroll
         const statNumbers = document.querySelectorAll('.stat-number');
         let statsAnimated = false;
 
