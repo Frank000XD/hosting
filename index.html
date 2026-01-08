@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad Educativa Fiscal Provincia de Bolívar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a4b8c;
+            --primary-blue-dark: #0d2d5a;
+            --primary-blue-light: #2d6bc4;
+            --accent-gold: #d4a836;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #6c757d;
+            --gray-600: #495057;
+            --gray-700: #343a40;
+            --gray-800: #212529;
+            --white: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
+            --transition: all 0.3s ease;
+        }
+
+        .dark {
+            --primary-blue: #3d7dd4;
+            --primary-blue-dark: #2d6bc4;
+            --primary-blue-light: #5a9be8;
+            --accent-gold: #e8bc4a;
+            --gray-100: #1a1a2e;
+            --gray-200: #252542;
+            --gray-300: #2f2f4f;
+            --gray-400: #3a3a5c;
+            --gray-500: #6c6c8a;
+            --gray-600: #9a9ab8;
+            --gray-700: #c4c4dc;
+            --gray-800: #e8e8f0;
+            --white: #12121f;
+            --text-primary: #f0f0f8;
+            --text-secondary: #b8b8d0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--gray-100);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 75, 140, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            transition: var(--transition);
+        }
+
+        .dark .navbar {
+            background: rgba(18, 18, 31, 0.95);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .dark .nav-brand {
+            color: var(--text-primary);
+        }
+
+        .nav-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), #c49a2e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-blue-dark);
+        }
+
+        .nav-brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            line-height: 1.2;
+        }
+
+        .nav-brand-text span {
+            display: block;
+            font-size: 0.75rem;
+            opacity: 0.9;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .dark .nav-link {
+            color: var(--text-secondary);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+        }
+
+        .dark .nav-link:hover, .dark .nav-link.active {
+            background: var(--gray-300);
+            color: var(--text-primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .dark .mobile-toggle {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 50%, var(--primary-blue-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero-shape:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-gold);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .hero-shape:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background: var(--white);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -5s;
+        }
+
+        .hero-shape:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-gold);
+            top: 40%;
+            left: 10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -30px) rotate(5deg); }
+            50% { transform: translate(-10px, 20px) rotate(-5deg); }
+            75% { transform: translate(30px, 10px) rotate(3deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 54, 0.2);
+            color: var(--accent-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 168, 54, 0.3);
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--primary-blue-dark);
+        }
+
+        .btn-primary:hover {
+            background: #e8bc4a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 168, 54, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: var(--gray-100);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+        }
+
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* History Section */
+        .history {
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+        }
+
+        .history-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .history-image {
+            position: relative;
+        }
+
+        .history-image-main {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .history-image-main::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.1'/%3E%3C/svg%3E");
+        }
+
+        .history-image-main i {
+            font-size: 6rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .history-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--accent-gold);
+            color: var(--primary-blue-dark);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .history-badge span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .history-badge small {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .history-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .history-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .history-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .history-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .history-feature i {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+
+        /* Authorities Section */
+        .authorities {
+            background: var(--white);
+        }
+
+        .authorities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .authority-card {
+            background: var(--gray-100);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .authority-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .authority-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .authority-image i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .authority-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .authority-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .authority-info p {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .authority-info small {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Academic Offer */
+        .academic {
+            background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+            color: var(--white);
+        }
+
+        .academic .section-label {
+            color: var(--accent-gold);
+        }
+
+        .academic .section-title {
+            color: var(--white);
+        }
+
+        .academic .section-desc {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .academic-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+        }
+
+        .academic-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .academic-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-blue-dark);
+        }
+
+        .academic-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .academic-card p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .academic-list {
+            list-style: none;
+        }
+
+        .academic-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .academic-list li i {
+            color: var(--accent-gold);
+        }
+
+        /* News Section */
+        .news {
+            background: var(--gray-100);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--gray-300), var(--gray-400));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news-image i {
+            font-size: 3rem;
+            color: var(--gray-500);
+        }
+
+        .news-date {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: rgba(26, 75, 140, 0.1);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .news-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            background: linear-gradient(135deg, var(--gray-200), var(--gray-300));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item i {
+            font-size: 2.5rem;
+            color: var(--gray-500);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 75, 140, 0.9), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gray-100);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .contact-item-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .contact-item-text p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--gray-100);
+            color: var(--text-primary);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(26, 75, 140, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-800);
+            color: var(--gray-400);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .dark .footer {
+            background: #0a0a14;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary-blue-dark);
+        }
+
+        .footer-brand-text {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        .dark .footer-brand-text {
+            color: var(--text-primary);
+        }
+
+        .footer-about p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-700);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            transition: var(--transition);
+        }
+
+        .dark .footer-social a {
+            background: var(--gray-300);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .dark .footer-title {
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-700);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .dark .footer-bottom {
+            border-color: var(--gray-300);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .modal-btn-cancel {
+            background: var(--gray-200);
+            color: var(--text-primary);
+        }
+
+        .modal-btn-confirm {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary-blue-dark);
+                flex-direction: column;
+                padding: 1rem;
+                display: none;
+                gap: 0.25rem;
+            }
+
+            .dark .nav-menu {
+                background: var(--gray-200);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .history-content {
+                grid-template-columns: 1fr;
+            }
+
+            .history-image {
+                order: -1;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            animation: scroll 30s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .carousel-item {
+            min-width: 300px;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .carousel-item p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .carousel-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .carousel-author-info strong {
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .carousel-author-info small {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-brand">
+                <div class="nav-logo">UEB</div>
+                <div class="nav-brand-text">
+                    U.E. Provincia de Bolívar
+                    <span>Guayaquil - Ecuador</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#historia" class="nav-link">Historia</a></li>
+                <li><a href="#autoridades" class="nav-link">Autoridades</a></li>
+                <li><a href="#oferta" class="nav-link">Oferta Académica</a></li>
+                <li><a href="#noticias" class="nav-link">Noticias</a></li>
+                <li><a href="#galeria" class="nav-link">Galería</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-shapes">
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge">
+                <i class="fas fa-graduation-cap"></i> Educación de Calidad
+            </span>
+            <h1>Unidad Educativa Fiscal<br>Provincia de Bolívar</h1>
+            <p class="hero-subtitle">
+                Formando estudiantes con valores, pensamiento crítico y competencias tecnológicas
+                para desenvolverse en una sociedad en constante cambio.
+            </p>
+            <div class="hero-buttons">
+                <a href="#oferta" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i> Conoce Nuestra Oferta
+                </a>
+                <a href="#contacto" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Contáctanos
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">+1500</div>
+                    <div class="stat-label">Estudiantes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+50</div>
+                    <div class="stat-label">Docentes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+30</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Conócenos</span>
+                <h2 class="section-title">Nuestra Identidad Institucional</h2>
+                <p class="section-desc">
+                    Comprometidos con la excelencia educativa y la formación integral de nuestros estudiantes.
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="about-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Misión</h3>
+                    <p>
+                        Formar estudiantes íntegros con sólidos valores éticos, pensamiento crítico
+                        y competencias tecnológicas, capaces de contribuir positivamente a la sociedad
+                        y adaptarse a los desafíos del mundo contemporáneo.
+                    </p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visión</h3>
+                    <p>
+                        Ser reconocidos como una institución educativa líder en la ciudad de Guayaquil,
+                        destacada por su excelencia académica, innovación pedagógica y compromiso
+                        con el desarrollo integral de la comunidad educativa.
+                    </p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Valores</h3>
+                    <p>
+                        Responsabilidad, respeto, solidaridad, honestidad, compromiso con la excelencia,
+                        innovación y trabajo en equipo son los pilares fundamentales que guían
+                        nuestra labor educativa diaria.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history" id="historia">
+        <div class="section-container">
+            <div class="history-content">
+                <div class="history-image fade-in">
+                    <div class="history-image-main">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="history-badge">
+                        <span>+30</span>
+                        <small>Años formando<br>líderes</small>
+                    </div>
+                </div>
+                <div class="history-text fade-in">
+                    <span class="section-label">Nuestra Historia</span>
+                    <h2>Una Trayectoria de Excelencia Educativa</h2>
+                    <p>
+                        La Unidad Educativa Fiscal Provincia de Bolívar ha sido un pilar fundamental
+                        en la educación guayaquileña. Desde su fundación, hemos formado generaciones
+                        de ciudadanos comprometidos con el desarrollo del país.
+                    </p>
+                    <p>
+                        Ubicados en la ciudad de Guayaquil, provincia del Guayas, brindamos servicios
+                        educativos de calidad en los niveles de Educación General Básica y Bachillerato,
+                        siempre alineados con las políticas del Ministerio de Educación del Ecuador.
+                    </p>
+                    <div class="history-features">
+                        <div class="history-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Educación General Básica</span>
+                        </div>
+                        <div class="history-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bachillerato General</span>
+                        </div>
+                        <div class="history-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Infraestructura Moderna</span>
+                        </div>
+                        <div class="history-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Docentes Capacitados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authorities Section -->
+    <section class="authorities" id="autoridades">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Nuestro Equipo</span>
+                <h2 class="section-title">Autoridades y Docentes</h2>
+                <p class="section-desc">
+                    Profesionales comprometidos con la formación integral de nuestros estudiantes.
+                </p>
+            </div>
+            <div class="authorities-grid">
+                <div class="authority-card fade-in">
+                    <div class="authority-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="authority-info">
+                        <h4>Rector/a</h4>
+                        <p>Dirección General</p>
+                        <small>Líder institucional comprometido con la excelencia educativa</small>
+                    </div>
+                </div>
+                <div class="authority-card fade-in">
+                    <div class="authority-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="authority-info">
+                        <h4>Vicerrector/a</h4>
+                        <p>Gestión Académica</p>
+                        <small>Coordinación de procesos pedagógicos y curriculares</small>
+                    </div>
+                </div>
+                <div class="authority-card fade-in">
+                    <div class="authority-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="authority-info">
+                        <h4>Inspector/a General</h4>
+                        <p>Gestión Administrativa</p>
+                        <small>Supervisión del bienestar estudiantil y disciplina</small>
+                    </div>
+                </div>
+                <div class="authority-card fade-in">
+                    <div class="authority-image">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="authority-info">
+                        <h4>Cuerpo Docente</h4>
+                        <p>+50 Profesionales</p>
+                        <small>Educadores capacitados y comprometidos</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Offer Section -->
+    <section class="academic" id="oferta">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Formación Académica</span>
+                <h2 class="section-title">Nuestra Oferta Educativa</h2>
+                <p class="section-desc">
+                    Programas académicos diseñados para desarrollar el potencial de cada estudiante.
+                </p>
+            </div>
+            <div class="academic-grid">
+                <div class="academic-card fade-in">
+                    <div class="academic-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Educación General Básica</h3>
+                    <p>
+                        Formación integral desde los primeros años, desarrollando habilidades
+                        cognitivas, sociales y emocionales fundamentales.
+                    </p>
+                    <ul class="academic-list">
+                        <li><i class="fas fa-check"></i> Preparatoria</li>
+                        <li><i class="fas fa-check"></i> Básica Elemental (2do - 4to)</li>
+                        <li><i class="fas fa-check"></i> Básica Media (5to - 7mo)</li>
+                        <li><i class="fas fa-check"></i> Básica Superior (8vo - 10mo)</li>
+                    </ul>
+                </div>
+                <div class="academic-card fade-in">
+                    <div class="academic-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Bachillerato General Unificado</h3>
+                    <p>
+                        Preparación académica sólida para el acceso a la educación superior
+                        y el desarrollo profesional futuro.
+                    </p>
+                    <ul class="academic-list">
+                        <li><i class="fas fa-check"></i> Primer Año de Bachillerato</li>
+                        <li><i class="fas fa-check"></i> Segundo Año de Bachillerato</li>
+                        <li><i class="fas fa-check"></i> Tercer Año de Bachillerato</li>
+                        <li><i class="fas fa-check"></i> Orientación Vocacional</li>
+                    </ul>
+                </div>
+                <div class="academic-card fade-in">
+                    <div class="academic-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Formación Complementaria</h3>
+                    <p>
+                        Programas adicionales que enriquecen la experiencia educativa
+                        y preparan para los desafíos del siglo XXI.
+                    </p>
+                    <ul class="academic-list">
+                        <li><i class="fas fa-check"></i> Tecnologías de la Información</li>
+                        <li><i class="fas fa-check"></i> Actividades Culturales</li>
+                        <li><i class="fas fa-check"></i> Deportes y Recreación</li>
+                        <li><i class="fas fa-check"></i> Proyectos Escolares</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news" id="noticias">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Actualidad</span>
+                <h2 class="section-title">Noticias y Eventos</h2>
+                <p class="section-desc">
+                    Mantente informado sobre las últimas novedades y actividades de nuestra institución.
+                </p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card fade-in">
+                    <div class="news-image">
+                        <i class="fas fa-newspaper"></i>
+                        <span class="news-date">Enero 2025</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">Académico</span>
+                        <h4>Inicio del Nuevo Año Lectivo 2025</h4>
+                        <p>
+                            Damos la bienvenida a todos nuestros estudiantes al nuevo año escolar
+                            con renovadas instalaciones y programas educativos.
+                        </p>
+                        <a href="#" class="news-link" onclick="showModal('Noticias', 'Próximamente más información sobre este evento.'); return false;">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="news-card fade-in">
+                    <div class="news-image">
+                        <i class="fas fa-trophy"></i>
+                        <span class="news-date">Diciembre 2024</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">Logros</span>
+                        <h4>Reconocimiento a Estudiantes Destacados</h4>
+                        <p>
+                            Ceremonia de premiación a los estudiantes que sobresalieron
+                            en rendimiento académico y actividades extracurriculares.
+                        </p>
+                        <a href="#" class="news-link" onclick="showModal('Noticias', 'Próximamente más información sobre este evento.'); return false;">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="news-card fade-in">
+                    <div class="news-image">
+                        <i class="fas fa-users"></i>
+                        <span class="news-date">Noviembre 2024</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">Comunidad</span>
+                        <h4>Feria de Ciencias Institucional</h4>
+                        <p>
+                            Exitosa participación de estudiantes en la feria de ciencias
+                            con proyectos innovadores y creativos.
+                        </p>
+                        <a href="#" class="news-link" onclick="showModal('Noticias', 'Próximamente más información sobre este evento.'); return false;">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Galería</span>
+                <h2 class="section-title">Momentos Memorables</h2>
+                <p class="section-desc">
+                    Revive los mejores momentos de nuestra comunidad educativa.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-image"></i>
+                    <div class="gallery-overlay">
+                        <span>Instalaciones</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-image"></i>
+                    <div class="gallery-overlay">
+                        <span>Actividades Académicas</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-image"></i>
+                    <div class="gallery-overlay">
+                        <span>Eventos Culturales</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-image"></i>
+                    <div class="gallery-overlay">
+                        <span>Deportes</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-image"></i>
+                    <div class="gallery-overlay">
+                        <span>Graduaciones</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-image"></i>
+                    <div class="gallery-overlay">
+                        <span>Comunidad Educativa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Contacto</span>
+                <h2 class="section-title">¿Tienes Preguntas?</h2>
+                <p class="section-desc">
+                    Estamos aquí para ayudarte. Contáctanos y te responderemos a la brevedad.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Información de Contacto</h3>
+                    <p>
+                        Visítanos en nuestras instalaciones o comunícate con nosotros
+                        a través de cualquiera de nuestros canales de atención.
+                    </p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Dirección</h4>
+                                <p>Guayaquil, Provincia del Guayas, Ecuador</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Teléfono</h4>
+                                <p>(04) XXX-XXXX</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Correo Electrónico</h4>
+                                <p>info@uebolivar.edu.ec</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Viernes: 7:00 AM - 3:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre Completo</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="informacion">Información General</option>
+                                <option value="matriculas">Matrículas</option>
+                                <option value="academico">Consulta Académica</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="news" style="padding-top: 0;">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-label">Testimonios</span>
+                <h2 class="section-title">Lo Que Dicen de Nosotros</h2>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <p>"La educación que recibí aquí me preparó para enfrentar los retos universitarios con confianza."</p>
+                        <div class="carousel-author">
+                            <div class="carousel-avatar"><i class="fas fa-user"></i></div>
+                            <div class="carousel-author-info">
+                                <strong>Estudiante Egresado</strong>
+                                <small>Promoción 2023</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <p>"Excelente institución con docentes comprometidos y una formación integral de calidad."</p>
+                        <div class="carousel-author">
+                            <div class="carousel-avatar"><i class="fas fa-user"></i></div>
+                            <div class="carousel-author-info">
+                                <strong>Padre de Familia</strong>
+                                <small>Representante</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <p>"Los valores que aprendí aquí me han acompañado toda mi vida profesional."</p>
+                        <div class="carousel-author">
+                            <div class="carousel-avatar"><i class="fas fa-user"></i></div>
+                            <div class="carousel-author-info">
+                                <strong>Exalumno</strong>
+                                <small>Promoción 2018</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <p>"Una comunidad educativa que realmente se preocupa por el bienestar de los estudiantes."</p>
+                        <div class="carousel-author">
+                            <div class="carousel-avatar"><i class="fas fa-user"></i></div>
+                            <div class="carousel-author-info">
+                                <strong>Madre de Familia</strong>
+                                <small>Representante</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <p>"La educación que recibí aquí me preparó para enfrentar los retos universitarios con confianza."</p>
+                        <div class="carousel-author">
+                            <div class="carousel-avatar"><i class="fas fa-user"></i></div>
+                            <div class="carousel-author-info">
+                                <strong>Estudiante Egresado</strong>
+                                <small>Promoción 2023</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <p>"Excelente institución con docentes comprometidos y una formación integral de calidad."</p>
+                        <div class="carousel-author">
+                            <div class="carousel-avatar"><i class="fas fa-user"></i></div>
+                            <div class="carousel-author-info">
+                                <strong>Padre de Familia</strong>
+                                <small>Representante</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-brand">
+                    <div class="footer-logo">UEB</div>
+                    <div class="footer-brand-text">U.E. Provincia de Bolívar</div>
+                </div>
+                <p>
+                    Formando estudiantes con valores, pensamiento crítico y competencias
+                    tecnológicas para un futuro exitoso.
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Enlaces Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#oferta">Oferta Académica</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Institucional</h4>
+                <ul class="footer-links">
+                    <li><a href="#autoridades">Autoridades</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Recursos</h4>
+                <ul class="footer-links">
+                    <li><a href="https://educacion.gob.ec" target="_blank" rel="noopener">Ministerio de Educación</a></li>
+                    <li><a href="#" onclick="showModal('Recursos', 'Próximamente habilitaremos el acceso a recursos académicos.'); return false;">Recursos Académicos</a></li>
+                    <li><a href="#" onclick="showModal('Calendario', 'El calendario escolar estará disponible próximamente.'); return false;">Calendario Escolar</a></li>
+                    <li><a href="#" onclick="showModal('Normativa', 'La normativa institucional estará disponible próximamente.'); return false;">Normativa</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Unidad Educativa Fiscal Provincia de Bolívar. Todos los derechos reservados.</p>
+            <p>Guayaquil, Guayas - Ecuador</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h3 id="modalTitle">Información</h3>
+            <p id="modalMessage">Contenido del modal</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-confirm" onclick="closeModal()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Modal functions
+        function showModal(title, message) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeModal();
+            }
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const nombre = formData.get('nombre');
+
+            showModal(
+                '¡Mensaje Enviado!',
+                `Gracias ${nombre}, hemos recibido tu mensaje. Te contactaremos pronto.`
+            );
+
+            form.reset();
+        }
+
+        // Animate stats on scroll
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsAnimated = false;
+
+        function animateStats() {
+            statNumbers.forEach(stat => {
+                const text = stat.textContent;
+                const hasPlus = text.includes('+');
+                const num = parseInt(text.replace(/\D/g, ''));
+                let current = 0;
+                const increment = num / 50;
+                const prefix = hasPlus ? '+' : '';
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= num) {
+                        stat.textContent = prefix + num;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = prefix + Math.floor(current);
+                    }
+                }, 30);
+            });
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            statsObserver.observe(heroStats);
+        }
+    </script>
+</body>
+</html>
